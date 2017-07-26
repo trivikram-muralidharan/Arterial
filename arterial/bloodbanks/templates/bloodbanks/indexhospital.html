@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Hospital Index</title>
+		<meta name="description" content="Locations:of users" />
+		<meta name="keywords" content="Locations of users" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/normalize.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/demo.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/component.css' %}" />
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	
+	{% csrf_token %}
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				
+				
+			</div>
+			<header>
+				<h1>List of  <em>Blood</em> <span>Banks</span></h1>	
+				
+			</header>
+			<div class="component">
+				
+				<p>Requests:</p>
+				
+				<table>
+					<thead>
+						<tr>
+						    <th>BloodBank</th>
+							<th>Address</th>
+							<th>Contact</th>
+							<th>A+</th>
+							<th>A-</th>
+							<th>B+</th>
+							<th>B-</th>
+							<th>AB+</th>
+							<th>AB-</th>
+							<th>O+</th>
+							<th>O-</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						{% for bb in bbs %}
+                        <tr><td align="left">{{bb.name}}</td><td align="left">{{bb.address}}</a></td><td align="left">{{bb.contact}}</td><td align="left">{{bb.apunit}}</td><td align="left">{{bb.anunit}}</td><td align="left">{{bb.bpunit}}</td><td align="left">{{bb.bnunit}}</td><td align="left">{{bb.abpunit}}</td><td align="left">{{bb.abnunit}}</td><td align="left">{{bb.opunit}}</td><td align="left">{{bb.onunit}}</td></tr>
+                        {% endfor %}
+				</tbody>
+				</table>
+				
+			</div>
+			
+			
+			<p> Request for blood donation:</p>
+			<form method='post'>
+			{% csrf_token %}
+			<label for ="bunit">Units required</label>
+			<input type="text" name="bunit" placeholder="Units required" />
+			<label for ="btype">Blood type</label>
+			<input type="text" name="btype" placeholder="Blood type"/>
+			<input type="submit" value="Send request" name="update" />
+			</form>
+			
+		</div><!-- /container -->
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.stickyheader.js"></script>
+	
+	</body>
+</html>

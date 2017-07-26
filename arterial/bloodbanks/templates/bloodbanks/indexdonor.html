@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Donor Index</title>
+		<meta name="description" content="Locations:of users" />
+		<meta name="keywords" content="Locations of users" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/normalize.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/demo.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/component.css' %}" />
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	
+	{% csrf_token %}
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				
+				
+			</div>
+			<header>
+				<h1>Requests for <em>Blood</em> <span>Donations</span></h1>	
+				
+			</header>
+			<div class="component">
+				
+				<p>Requests:</p>
+				
+				<table>
+					<thead>
+						<tr>
+						    <th>Hospital</th>
+							<th>Address</th>
+							<th>Blood type</th>
+							<th>Units required</th>
+							
+							
+						</tr>
+					</thead>
+					<tbody>
+						{% for req in reqs %}
+                        <tr><td align="left">{{req.hospname}}</td><td align="left">{{req.address}}</a></td><td align="left">{{req.btype}}</td><td align="left">{{req.units}}</td></tr>
+                        {% endfor %}
+				</tbody>
+				</table>
+				
+			</div>
+			
+			
+			
+			
+			
+		</div><!-- /container -->
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.stickyheader.js"></script>
+	
+	</body>
+</html>

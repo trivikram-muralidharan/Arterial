@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'bloodbanks/stylelog.css' %}" />
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Arterial</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="color:black" background="{% static 'bloodbanks/background.jpg' %}">
+<div class="header">
+  <h1 style="opacity: 0.8;text-align:center;color:white;">Arterial - Hospital Login</h1>
+</div>
+<hr width="70%" style="border-color:#FFFFFF;background-color:#12E15D;">
+<br><br><br>
+
+<form style="text-align:center;" role="form" method="post">
+{% csrf_token %}
+
+
+<div class="row">
+<div class="form-group col-lg-offset-4 col-lg-4">
+  <label for="usr" style="color:#FFFFFF;">User ID:</label>
+  <input type="text" style="background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border-color:white;
+    outline:none;
+    height:30px;
+    transition:height 1s;
+    -webkit-transition:height 1s;" class="form-control" id="usr" name="usernm" />
+</div>
+</div>
+<br>
+
+<div class="row">
+<div class="form-group col-lg-offset-4 col-lg-4">
+  <label for="pwd" style="color:#000000;">Password:</label>
+  <input type="password" style="background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border-color:white;
+    outline:none;
+    height:30px;
+    transition:height 1s;
+    -webkit-transition:height 1s;" class="form-control " id="pwd" name="pswd" />
+</div>
+</div>
+
+<br><br><br>
+<input type="submit" class="btn btn-success btn-lg" value="Login" name="subbtn" id="subbtn">
+<br><br><br>
+
+
+
+</form>
+</body>
+</html>
+
+<br><br><br>
+
+
+
